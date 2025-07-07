@@ -1,12 +1,13 @@
 # AWS Neuron Documentation MCP Server
 
-An MCP (Model Context Protocol) server that provides access to AWS Neuron documentation through search and retrieval tools.
+An MCP (Model Context Protocol) server built with FastMCP that provides access to AWS Neuron documentation through search and retrieval tools.
 
 ## Features
 
 - **Search Documentation**: Search through AWS Neuron documentation for specific topics, APIs, or concepts
 - **Retrieve Content**: Get the full content of specific documentation pages
 - **List Guides**: Browse available guides and tutorials by category
+- **Built with FastMCP**: Simplified, modern MCP server implementation
 
 ## Tools
 
@@ -70,7 +71,7 @@ Add to your MCP configuration:
 ### Direct Usage
 
 ```bash
-aws-neuron-documentation-mcp-server
+python -m aws_neuron_documentation_mcp_server.server
 ```
 
 ## Examples
@@ -106,14 +107,21 @@ aws-neuron-documentation-mcp-server
 }
 ```
 
+## Architecture
+
+Built using **FastMCP**, a modern Python framework for creating MCP servers with:
+- Simplified decorator-based tool definitions
+- Automatic type validation and schema generation
+- Reduced boilerplate code
+- Better developer experience
+
 ## Requirements
 
 - Python 3.8+
+- fastmcp
 - httpx
 - beautifulsoup4
 - lxml
-- mcp
-- pydantic
 
 ## License
 
