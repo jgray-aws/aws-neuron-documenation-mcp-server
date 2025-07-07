@@ -39,7 +39,7 @@ pip install aws-neuron-documentation-mcp-server
 Or install from source:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/jgray-aws/neuron-mcp.git
 cd aws-neuron-documentation-mcp-server
 pip install -e .
 ```
@@ -53,10 +53,15 @@ Add to your MCP configuration:
 ```json
 {
   "mcpServers": {
-    "aws-neuron-docs": {
-      "command": "aws-neuron-documentation-mcp-server",
-      "args": [],
-      "env": {}
+        "aws-neuron-docs": {
+      "command": "python",
+      "args": [
+        "-m",
+        "aws_neuron_documentation_mcp_server.server"
+      ],
+      "env": {},
+      "disabled": false,
+      "autoApprove": []
     }
   }
 }
