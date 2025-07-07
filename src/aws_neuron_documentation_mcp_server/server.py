@@ -22,7 +22,8 @@ from mcp.types import (
     TextContent,
     ImageContent,
     EmbeddedResource,
-    LoggingLevel
+    LoggingLevel,
+    ServerCapabilities
 )
 from pydantic import BaseModel, Field
 
@@ -365,10 +366,7 @@ class NeuronDocumentationServer:
                 InitializationOptions(
                     server_name="aws-neuron-documentation-mcp-server",
                     server_version="0.1.0",
-                    capabilities=self.server.get_capabilities(
-                        notification_options=None,
-                        experimental_capabilities=None,
-                    ),
+                    capabilities=ServerCapabilities()
                 ),
             )
 
@@ -377,5 +375,9 @@ async def main():
     server = NeuronDocumentationServer()
     await server.run()
 
-if __name__ == "__main__":
+def run_server():
+    """Synchronous wrapper for the async main function."""
     asyncio.run(main())
+
+if __name__ == "__main__":
+    run_server()
